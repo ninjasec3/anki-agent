@@ -1,0 +1,8 @@
+Flows
+
+Flows allow you to create structured, event-driven workflows.
+
+To create a Flow in the project:
+crewai create flow name_of_flow
+
+

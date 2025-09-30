@@ -1,0 +1,20 @@
+{
+  "flashcards": [
+    {
+      "Front": "What is the purpose of Flows in a project?",
+      "Back": "Flows allow you to create structured, event-driven workflows.",
+      "tags": [
+        "flows",
+        "workflow"
+      ]
+    },
+    {
+      "Front": "Which command is used to create a new Flow in the project?",
+      "Back": "crewai create flow name_of_flow",
+      "tags": [
+        "flows",
+        "command"
+      ]
+    }
+  ]
+}

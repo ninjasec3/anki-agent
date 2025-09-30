@@ -1,0 +1,22 @@
+generate_flashcards:
+  description: >
+    Read notes from {folder_path} and generate a JSON array of Anki flashcards.
+    Files may include .md, .txt, .pdf, .docx, .csv, .json, .xml. Choose the correct tool based on extension:
+    - Use DirectoryReadTool to enumerate files
+    - Use ReadMarkdownFolderTool for bulk .md, otherwise use FileReadTool for plain text
+    - Use PDFSearchTool/DOCXSearchTool/CSVSearchTool/JSONSearchTool/XMLSearchTool where appropriate
+    Each item must be an object with fields: Front, Back, and optional tags (list of strings).
+    Extract key concepts, definitions, and Q/A pairs. Be concise and avoid duplicates.
+    If there are multiple files in the folder, generate flashcards for each file.
+    Handle Polish characters correctly whenever they appear.
+  expected_output: >
+    A valid JSON array, e.g. [{"Front": "...", "Back": "...", "tags": ["{tags}"]}]
+  agent: flashcard_generator
+
+upload_to_anki:
+  description: >
+    Using the generated JSON array of flashcards (provided as {flashcards}), upload them to Anki deck {deck_name}
+    with model {model_name} and apply tags {tags}. Return the AnkiConnect result.
+  expected_output: >
+    A JSON object with the AnkiConnect addNotes result or an error description.
+  agent: anki_uploader
