@@ -3,6 +3,10 @@
 Anki Agent AI creates study flashcards from your notes and sends them to Anki automatically.
 It supports .pdf, .docx, .md, .txt, .csv, and .json files. Anki is a flashcard app available on desktop, web, and mobile.
 
+## Disclaimer
+
+If you encounter any problem with installation, do not hesitate to ask ChatGPT or Perplexity. It will resolve 99% of problems.
+
 ## What you need
 
 - Python
@@ -18,12 +22,7 @@ It supports .pdf, .docx, .md, .txt, .csv, and .json files. Anki is a flashcard a
 - Create a folder for the agent (for example, "Anki Agent AI").
 - Download a ZIP and unpack in that folder or clone a repo there.
 
-### 2) Install Python
-
-- Go to https://www.python.org/downloads/
-- Download and install latest version
-
-### 3) Install Anki Desktop
+### 2) Install Anki Desktop
 
 - Download and install from https://apps.ankiweb.net/
 - Create or sign in to your Anki account to sync.
@@ -37,18 +36,46 @@ It supports .pdf, .docx, .md, .txt, .csv, and .json files. Anki is a flashcard a
 5. Click OK
 6. Restart Anki (important)
 
-### 4) Add your OpenAI API key
+### 3) Create your OpenAI API key
 
 - Sign in to `https://platform.openai.com` → Organization → API Keys → Create new secret key.
 - Save the key now; you won’t see it again after closing the dialog.
 - Important: your account needs credit. Go to Billing → Add to credit balance (for example, $10). You can turn off auto‑recharge afterward to not charge automatically.
 
-### 5) Install Python dependencies
+### 4) Install Python
 
-Install the required packages using the requirements.txt file:
+- Download and install Python using terminal:
 
 ```bash
-# Create a virtual environment (recommended)
+sudo apt update
+sudo apt install python3
+```
+
+- Alternatively, go to https://www.python.org/downloads/. Download and install latest version.
+
+### 5) Install pip
+
+- Install `pip` through terminal:
+
+```bash
+sudo apt update
+sudo apt install python3-pip
+```
+
+### 6) Install virtual environment
+
+- Install virtual environment through terminal:
+
+```bash
+sudo apt install python3.12-venv
+```
+
+### 7) Install Python dependencies
+
+On terminal, go to the folder where you put the project and the requirements.txt file is located. Install the required packages using command:
+
+```bash
+# Create a virtual environment
 python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
@@ -56,9 +83,9 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 6) Create a .env file
+### 8) Create a .env file
 
-In your project folder where you cloned or unpacked zip, create a file named `.env` with:
+In your project folder where you cloned or unpacked zip, go to the "anki_flow" folder and create a file named `.env` with:
 
 ```
 MODEL=gpt-4.1
@@ -68,9 +95,9 @@ OPENAI_API_KEY=your_api_key_here
 ## Run the agent
 
 1. Open Anki Desktop and leave it running.
-2. Open a terminal and go to your project folder (the one that contains `anki_flow`), then:
+2. Open a terminal and go to your project folder (the one that contains `anki_flow`). The command looks like this:
    ```
-   cd path/to/your/project/anki_flow
+   cd path/to/your/project/anki-agent/anki_flow
    ```
 3. To generate flashcards and send them to Anki:
    ```
